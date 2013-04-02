@@ -10,7 +10,9 @@
 	    margin:0px auto;
 	    width:200px;
 	    height:50px;
-	    border:1px solid #444;	
+	    border:1px solid #444;
+		top: 100;
+		left: 100;	
 	  }
 	</style>
 	
@@ -22,17 +24,22 @@
         // $(".flying").flytoCart();
         
         // CASE 2: with callback
-        $(".flying").flytoCart( function(){
+       /* $(".flying").flytoCart( function(){
         	//do something to add the product to the shopping cart
           alert(this.id + " add to the shopping cart");
         } );          
- 
-        /*
+ */
+        
         // CASE 3: with callback and overwrite default options    
         $(".flying").flytoCart( function(){
         	  alert("Finish with "+this.id);
-        	  }, {velocity:10000, destination: '.shoppingcart'} );
-        */
+        	  }, {
+			  source: '#prod',
+			  attribute: '',
+			  velocity:1000, 
+			  destination: '.destination'
+			  } );
+        
         
     });  
 	
@@ -44,10 +51,18 @@
 		<div class='destination'></div>
 		
 		<div id='products'>
-			<a href='#' class='flying' ><img  src='img/amarillo.jpg'  width='100'  id='product_id_1' /></a>
-			<a href='#' class='flying' ><img  src='img/negro.jpg'     width='100'  id='product_id_2' /></a>
-			<a href='#' class='flying' ><img  src='img/verde.jpg'     width='100'  id='product_id_3'  /></a>
+			<p><a href='#' class='flying' rel="product_id_1" ><img src="img/shop_cart.png" width="48" height="48"></a><br>
+              <br>
+			  
+			    <a href='#' class='flying' rel="product_id_2" ><img src="img/shop_cart.png" width="48" height="48"></a><br>
+              <br>
+			  
+			    <a href='#' class='flying' rel="product_id_3" ><img src="img/shop_cart.png" width="48" height="48"></a><br>
+          </p>
+			<div id="prod"><img src="img/product1.jpg" name="prod" width="319" height="376">
+		        </div>
 		</div>
 
+        
 </body>
 </html>
